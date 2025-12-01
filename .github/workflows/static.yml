@@ -2,12 +2,11 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # 定时调度触发 (Schedule trigger)
+  # 使用 cron 表达式：每 1 小时运行一次
+  # '0 * * * *' 表示：在每小时的第 0 分钟运行
+  schedule:
+    - cron: '0 * * * *'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
